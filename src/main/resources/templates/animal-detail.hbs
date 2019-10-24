@@ -1,0 +1,12 @@
+{{#partial "content"}}
+
+    <h2>{{ animal.animal_name }}</h2>
+    <h3>{{ sighting.ranger_name }}</h3>
+    <p>
+        <a href="/animals/{{animal.id}}/edit">Edit {{ animal.animal_name }}</a><br>
+        <a href="/sightings/{{animal.sighting_id}}/animals/{{animal.id}}/delete">DELETE {{ animal.animal_name }}</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}

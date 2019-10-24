@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h1>Sighted Animals</h1>
+
+    {{#if animals}}
+      {{#each animals }}
+          <p><a href="/sightings/{{sighting_id}}/animals/{{id}}">{{animal_name}}</a></p>
+      {{/each}}
+    {{else}}
+        <p>No animals spotted!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

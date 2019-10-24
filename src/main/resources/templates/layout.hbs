@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wildlife Tracker{{/block}}</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <li role="presentation"><a href="/animals/new">Add an Animal</a></li>
+
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Endangered Animals<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          {{#if endangeredAnimals}}
+            {{#each endangeredAnimals}}
+                <li><a href="/endangeredAnimals/{{id}}">{{animal_name}}</a></li>
+            {{/each}}
+              <li><a href="/endangeredAnimals/new">Add an Endangered Animal</a></li>
+          {{else}}
+              <li><a href="/endangeredAnimals/new">Add an Endangered Animal</a></li>
+          {{/if}}
+        </ul>
+    </li>
+
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Sightings<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          {{#if sightings}}
+            {{#each sightings}}
+                <li><a href="/sightings/{{id}}">{{ranger_name}}</a></li>
+            {{/each}}
+              <li><a href="/sightings/new">Add a Sighting</a></li>
+          {{else}}
+              <li><a href="/sightings/new">Add a Sighting</a></li>
+          {{/if}}
+        </ul>
+    </li>
+
+</ul>
+<div class="container" style="background: url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+    <!--begin main template-->
+    <div class="page-header">
+        <h1>Wildlife Conservancy</h1>
+        <div class="row warriors">
+            <img src="https://images.pexels.com/photos/219906/pexels-photo-219906.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="31%" style="border-radius: 15%;  padding: 2%">
+            <img src="https://images.pexels.com/photos/50582/selfie-monkey-self-portrait-macaca-nigra-50582.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="31%" style="border-radius: 15%;  padding: 2%">
+            <img src="https://images.pexels.com/photos/133396/pexels-photo-133396.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="31%" style="border-radius: 15%;  padding: 2%">
+
+        </div>
+        <h3><small>Keeping track of all endangered animals.</small></h3>
+    </div>
+
+    <div class="col-md-12">
+      {{#block "content"}}
+      {{/block}}
+
+    </div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    <footer class="footer" >
+        <div class="container" style="background-color: #ddd">
+            <hr>
+            <p class="text-muted">
+                <a href="/sightings/delete">Delete Everything</a><br>
+                <a href="/endangeredAnimals/delete">Delete Endangered Animals</a><br>
+                <a href="/animals/delete">Delete Animals</a>
+            </p>
+        </div>
+    </footer>
+    </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </html>
+{{/block}}

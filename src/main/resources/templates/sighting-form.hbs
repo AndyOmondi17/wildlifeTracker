@@ -1,0 +1,36 @@
+{{#partial "content"}}
+  {{#if editSighting}}
+      <h1>Edit {{sighting.ranger_name}}</h1>
+      <form action="/sightings/{{sighting.id}}" method="post">
+          <!--        check line below for potential error due to naming inconsistencies-->
+          <div class="form-group">
+              <label for="animal_location">Location Sighted</label>
+              <input id="animal_location" name="animal_location" type="text" value="{{sighting.animal_location}}" class="form-control">
+          </div>
+          <br>
+          <div class="form-group">
+              <label for="ranger_name">Ranger Name</label>
+              <input id="ranger_name" name="ranger_name" type="text" value="{{sighting.ranger_name}}" class="form-control">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+  {{else}}
+      <h1>Add a new Sighting!</h1>
+      <form action="/sightings" method="post">
+          <div class="form-group">
+              <label for="animal_location">Location Sighted</label>
+              <input id="animal_location" name="animal_location" type="text" class="form-control">
+          </div>
+          <br>
+          <div class="form-group">
+              <label for="ranger_name">Ranger Name</label>
+              <input id="ranger_name" name="ranger_name" type="text" class="form-control">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+  {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h2>{{ endangeredAnimal.animal_name }}</h2>
+    <h3>{{ sighting.ranger_name }}</h3>
+    <p><h3>Age:</h3>{{ endangeredAnimal.animal_age }} years</p>
+    <br>
+    <p><h3>Health status:</h3>{{ endangeredAnimal.animal_health }}</p>
+    <br>
+    <p>
+        <a href="/endangeredAnimals/{{endangeredAnimal.id}}/edit">Edit {{ endangeredAnimal.animal_name }}</a><br>
+        <a href="/sightings/{{endangeredAnimal.sighting_id}}/endangeredAnimals/{{endangeredAnimal.id}}/delete">DELETE {{ endangeredAnimal.animal_name }}</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}

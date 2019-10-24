@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    <h1>{{sighting.ranger_name}}</h1>
+    <p>Here are the animals {{sighting.ranger_name}} saw:</p>
+    <ul>
+      {{#each animals}}
+          <li>
+              <p><a href="/sightings/{{sighting.id}}/animals/{{id}}">{{animal_name}}</a></p>
+          </li>
+      {{/each}}
+    </ul>
+    <p>Here are the endangered animals {{sighting.ranger_name}} saw:</p>
+    <ul>
+      {{#each endangeredAnimals}}
+          <li>
+              <p><a href="/sightings/{{sighting.id}}/endangeredAnimals/{{id}}">{{animal_name}}</a></p>
+          </li>
+      {{/each}}
+    </ul>
+    <a href="/sightings/{{sighting.id}}/edit">Edit {{sighting.ranger_name}}'s sightings</a><br>
+    <a href="/sightings/{{sighting.id}}/delete">DELETE {{sighting.ranger_name}}'s sightings</a>
+{{/partial}}
+
+{{> layout.hbs}}
