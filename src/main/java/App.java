@@ -150,9 +150,9 @@ public class App {
             int idOfSightingToFind = Integer.parseInt(req.params("sighting_id"));
             Sighting foundSighting = sightingDao.findById(idOfSightingToFind);
             model.put("sighting", foundSighting);
-            model.put("animal", foundAnimal); //add it to model for template to display
-            model.put("sightings", sightingDao.getAll()); //refresh list of links for navbar
-            return new ModelAndView(model, "animal-detail.hbs"); //individual hero page.
+            model.put("animal", foundAnimal);
+            model.put("sightings", sightingDao.getAll());
+            return new ModelAndView(model, "animal-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: show a form to update a animal
@@ -206,13 +206,13 @@ public class App {
         //get: show an individual endangeredAnimal that is nested in a sighting
         get("/sightings/:sighting_id/endangeredAnimals/:endangeredAnimal_id", (req, res) -> {
             int idOfEndangeredAnimalToFind = Integer.parseInt(req.params("endangeredAnimal_id")); //pull id - must match route segment
-            EndangeredAnimal foundEndangeredAnimal = endangeredAnimalDao.findById(idOfEndangeredAnimalToFind); //use it to find hero
+            EndangeredAnimal foundEndangeredAnimal = endangeredAnimalDao.findById(idOfEndangeredAnimalToFind); //use it to find individual endangered animal
             int idOfSightingToFind = Integer.parseInt(req.params("sighting_id"));
             Sighting foundSighting = sightingDao.findById(idOfSightingToFind);
             model.put("sighting", foundSighting);
-            model.put("endangeredAnimal", foundEndangeredAnimal); //add it to model for template to display
-            model.put("sightings", sightingDao.getAll()); //refresh list of links for navbar
-            return new ModelAndView(model, "endangeredAnimal-detail.hbs"); //individual hero page.
+            model.put("endangeredAnimal", foundEndangeredAnimal);
+            model.put("sightings", sightingDao.getAll());
+            return new ModelAndView(model, "endangeredAnimal-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: show a form to update a endangeredAnimal

@@ -13,6 +13,14 @@ public class EndangeredAnimal {
         this.animal_age = animal_age;
     }
 
+    public int getSighting_id() {
+        return sighting_id;
+    }
+
+    public void setSighting_id(int sighting_id) {
+        this.sighting_id = sighting_id;
+    }
+
     public int getId() {
         return id;
     }
